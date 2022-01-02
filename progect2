@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int NumberOfDigits(int num){
+    int amount=0;
+    while(num!=0)
+    amount++;
+    return amount;
+}
+int FlipTheNumber(int num){
+    int Rank,TotalNumber;
+    int NumberLength=NumberOfDigits(num);
+    for(int index=NumberLength;index>0;index--){
+        Rank=num%10;
+        num=num/10;
+        TotalNumber=TotalNumber+Rank*pow(10,index);
+}
+    return TotalNumber;
+}
+int main() {
+   // int ArrayOfNumbers[10];
+    int RepeateCycl;
+    int dateOne,newDateOne;
+    for(int repeat=0;repeat<RepeateCycl;repeat++){
+        cin>>dateOne;
+        newDateOne=FlipTheNumber(dateOne);
+        cout<<newDateOne;
+        
+        
+        }
+	return 0;
+}
