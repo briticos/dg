@@ -1,33 +1,49 @@
 #include <iostream>
-#include <math.h>
-using namespace std;
+#include <cmath>
 
-int NumberOfDigits(int num){
-    int amount=0;
-    while(num!=0)
-    amount++;
+
+int NumberOfDigits(int num) {
+
+    int amount = 0;
+
+    while (num != 0) {
+        amount++;
+        num=num/10;
+    }
+
     return amount;
 }
-int FlipTheNumber(int num){
-    int Rank,TotalNumber;
-    int NumberLength=NumberOfDigits(num);
-    for(int index=NumberLength;index>0;index--){
-        Rank=num%10;
-        num=num/10;
-        TotalNumber=TotalNumber+Rank*pow(10,index);
+
+int FlipTheNumber(int num) {
+    int Rank, TotalNumber{};
+    int NumberLength = NumberOfDigits(num);
+    for (int index = NumberLength; index > 0; --index) {
+        Rank = num % 10;
+        num = num / 10;
+        TotalNumber = TotalNumber + Rank * pow(10, index);
+    }
+    return (TotalNumber+1)/10;
 }
-    return TotalNumber;
-}
+
 int main() {
-   // int ArrayOfNumbers[10];
+
     int RepeateCycl;
-    int dateOne,newDateOne;
-    for(int repeat=0;repeat<RepeateCycl;repeat++){
-        cin>>dateOne;
-        newDateOne=FlipTheNumber(dateOne);
-        cout<<newDateOne;
-        
-        
-        }
-	return 0;
+    std::cin >> RepeateCycl;
+
+    int ArrayOfResponses[RepeateCycl];
+
+    int dateOne,  dateTwo;
+
+    for (int repeat{}; repeat < RepeateCycl; repeat++) {
+        std::cin >> dateOne>>dateTwo;
+        dateOne = FlipTheNumber(dateOne);
+        dateTwo = FlipTheNumber(dateTwo);
+        ArrayOfResponses[repeat] = FlipTheNumber(dateOne+dateTwo);
+    }
+
+    for(int i{};i<RepeateCycl;i++)
+        std::cout<<ArrayOfResponses[i]<<std::endl;
+
+    return 0;
 }
+
