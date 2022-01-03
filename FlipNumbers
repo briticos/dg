@@ -17,12 +17,12 @@ int NumberOfDigits(int num) {
 int FlipTheNumber(int num) {
     int Rank, TotalNumber{};
     int NumberLength = NumberOfDigits(num);
-    for (int index = NumberLength; index > 0; --index) {
+    for (int index{}; index < NumberLength ; index++) {
         Rank = num % 10;
+        TotalNumber = TotalNumber + Rank * pow(10, NumberLength-index-1);
         num = num / 10;
-        TotalNumber = TotalNumber + Rank * pow(10, index);
     }
-    return (TotalNumber+1)/10;
+    return TotalNumber;
 }
 
 int main() {
@@ -46,4 +46,5 @@ int main() {
 
     return 0;
 }
+
 
